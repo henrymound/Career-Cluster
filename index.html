@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+       <div id="series_chart_div" style="width: 700px; height:700px;"></div>
+    </head>
+    
+    <body bgcolor="#FF0000">
+        <script>
+            google.setOnLoadCallback(drawSeriesChart);
+
+            function drawSeriesChart() {
+
+              var data = google.visualization.arrayToDataTable([
+                ['ID',      '',          '',       'Distance from School',                             'Name',        'Number of Careers'],
+                ['Agriculture',    384.8, 276.5,   'Agriculture, Food and Natural Resources',           4,             20],
+                ['Architecture',   341.4, 341.4,   'Architecture and Construction',                     4,             20],
+                ['Arts',           276.5, 384.8,   'Arts, A/V Technology and Communications',           4,             20],
+                ['Business',       200,   400,     'Business, Management and Administration',           4,             20],
+                ['Education',      123.5, 384.8,   'Education and Training',                            4,             20],
+                ['Finance',        58.6,  341.4,   'Finance',                                           4,             20],
+                ['Government',     15.2,  276.5,   'Government and Public Administration',              4,             20],
+                ['Health',         0,	   200,    'Health Science',                                    4,             20],
+                ['Hospitality',    15.2,  123.5,   'Hospitality and Tourism',                           4,             20],    
+                ['Human Services', 58.6,  58.6,    'Human Services',                                    4,             20],
+                ['IT',             123.5,	15.2,  'Information Technology',                            4,             20],
+                ['Law',            200,	0,         'Law, Public Safety and Security',                   4,             20],
+                ['Manufacturing',  276.5,	15.2,  'Manufacturing',                                     4,             20],
+                ['Marketing',      341.4,	58.6,  'Marketing, Sales and Service',                      4,             20],
+                ['STEM',           384.8,	123.5, 'Science, Technology, Engineering and Mathematics',  4,             20],
+                ['Transportation', 400,	200,       'Transportation, Distribution and Logistics',        4,             20]
+              ]);
+
+              var options = {
+                title: 'Joel Barlow',
+                  hAxis: {title: 'Life Expectancy', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
+                vAxis: {title: 'Fertility Rate', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
+                bubble: {textStyle: {fontSize: 11}},
+                legend: {position: 'none', textStyle: {color: 'blue', fontSize: 16}}
+              };
+
+              var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+              chart.draw(data, options);
+                            
+              google.visualization.events.addListener(chart, 'select', selectHandler);
+
+   
+            }
+            
+            function selectHandler() {
+                
+                var selectedData = chart.getSelection(), row, item;
+        row = selectedData[0].row;
+        alert("You selected :" + row);           
+                
+            }
+            
+            
+            
+        
+            
+        </script>
+    </body>
+    
+</html>
