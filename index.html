@@ -4,7 +4,7 @@
        <div id="series_chart_div" style="width: 700px; height:700px;"></div>
     </head>
     
-    <body bgcolor="#FF0000">
+    <body bgcolor="#FFD700">
         <script>
             google.setOnLoadCallback(drawSeriesChart);
 
@@ -19,20 +19,20 @@
                 ['Education',      123.5, 384.8,   'Education and Training',                            9,             ],
                 ['Finance',        58.6,  341.4,   'Finance',                                           11,             ],
                 ['Government',     15.2,  276.5,   'Government and Public Administration',              4,             ],
-                ['Health',         0,	   200,    'Health Science',                                    4,             ],
-                ['Hospitality',    15.2,  123.5,   'Hospitality and Tourism',                           4,             ],    
-                ['Human Services', 58.6,  58.6,    'Human Services',                                    4,             ],
-                ['IT',             123.5,	15.2,  'Information Technology',                            4,             ],
-                ['Law',            200,	0,         'Law, Public Safety and Security',                   4,             ],
-                ['Manufacturing',  276.5,	15.2,  'Manufacturing',                                     4,             ],
-                ['Marketing',      341.4,	58.6,  'Marketing, Sales and Service',                      4,             ],
-                ['STEM',           384.8,	123.5, 'Science, Technology, Engineering and Mathematics',  4,             ],
-                ['Transportation', 400,	200,       'Transportation, Distribution and Logistics',        4,             ]
+                ['Health',         0,	   200,    'Health Science',                                    5,             ],
+                ['Hospitality',    15.2,  123.5,   'Hospitality and Tourism',                           2,             ],    
+                ['Human Services', 58.6,  58.6,    'Human Services',                                    1,             ],
+                ['IT',             123.5,	15.2,  'Information Technology',                            7,             ],
+                ['Law',            200,	0,         'Law, Public Safety and Security',                   1,             ],
+                ['Manufacturing',  276.5,	15.2,  'Manufacturing',                                     3,             ],
+                ['Marketing',      341.4,	58.6,  'Marketing, Sales and Service',                      8,             ],
+                ['STEM',           384.8,	123.5, 'Science, Technology, Engineering and Mathematics',  11,             ],
+                ['Transportation', 400,	200,       'Transportation, Distribution and Logistics',        7,             ]
               ]);
 
               var options = {
-                title: 'Joel Barlow',
-                titleTextStyle: {color: '#000000', fontSize: 30},
+                title: 'Available Clusters (JBHS)',
+                titleTextStyle: {color: '#000000', fontSize: 20},
                   hAxis: {title: 'Life Expectancy', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
                 vAxis: {title: 'Fertility Rate', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
                 bubble: {textStyle: {fontSize: 11}},
