@@ -1,19 +1,20 @@
-<?php 
 
-$spreadsheet_url="https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv";
-
-if(!ini_set('default_socket_timeout',    15)) {
-    echo "<!-- unable to change socket timeout -->";
-
-    if (($handle = fopen($spreadsheet_url, "r")) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                $spreadsheet_data[]=$data;
-            }
-        }
-        fclose($handle);
+<?php
+function readCSV($csvFile){
+	$file_handle = fopen($csvFile, 'r');
+	while (!feof($file_handle) ) {
+		$line_of_text[] = fgetcsv($file_handle, 1024);
+	}
+	fclose($file_handle);
+	return $line_of_text;
 }
 
-else
-    die("Problem reading csv");
 
+// Set path to CSV file
+$csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
+
+$csv = readCSV($csvFile);
+echo '<pre>';
+print_r($csv);
+echo '</pre>';
 ?>
