@@ -22,20 +22,8 @@ $CLUSTER_ARRAY = array(
     
 );
 
-echo getAddressSummary(1);
-    
-// if (($handle = fopen($csvFile, "r")) !== FALSE) {
-//     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-//         $num = count($data);
-//         echo "<p> $num fields in line $row: <br /></p>\n";
-//         $row++;
-//         for ($c=0; $c < $num; $c++) {
-//             echo $data[$c] . "<br />\n";
-//         }
-//     }
-//     fclose($handle);
-// }
 
+     echo getCareerInfo(1);
 
 function getNumberInCluster($clusterNumber){
     
@@ -101,6 +89,64 @@ function getAddressSummary($dataRow){
 
     
     
+    
+}
+function geocode($address){
+ 
+    // url encode the address
+    $address = urlencode($address);
+     
+    // google map geocode api url
+    $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
+ 
+    // get the json response
+    $resp_json = file_get_contents($url);
+     
+    // decode the json
+    $resp = json_decode($resp_json, true);
+ 
+    // response status will be 'OK', if able to geocode given address 
+    if($resp['status']=='OK'){
+ 
+        // get the important data
+        $lati = $resp['results'][0]['geometry']['location']['lat'];
+        $longi = $resp['results'][0]['geometry']['location']['lng'];
+        $formatted_address = $resp['results'][0]['formatted_address'];
+         
+        // verify if data is complete
+        if($lati && $longi && $formatted_address){
+         
+            // put the data in the array
+            $data_arr = array();            
+             
+            array_push(
+                $data_arr, 
+                    $lati, 
+                    $longi, 
+                    $formatted_address
+                );
+             
+            return $data_arr;
+             
+        }else{
+            return false;
+        }
+         
+    }else{
+        return false;
+    }
+}
+
+function getCareerInfo($career){
+    
+    $toReturn = "";
+    $arrayItem = getAddressSummary($career);
+    
+    $toReturn = $toReturn.$arrayItem."<br />";
+    $toReturn = $toReturn.geocode($arrayItem)[0].", ".geocode($arrayItem)[1]."<br />";
+    
+    return $toReturn;
+
     
 }
 
