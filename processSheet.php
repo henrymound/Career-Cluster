@@ -22,8 +22,9 @@ $CLUSTER_ARRAY = array(
     
 );
 
-
-    echo getNumberInCluster(5);
+for($x = 0; $x < count($CLUSTER_ARRAY); $x++){
+    echo "There are ".getNumberInCluster($x)." careers in cluster ".$CLUSTER_ARRAY[$x].".<br />";
+}
     
 // if (($handle = fopen($csvFile, "r")) !== FALSE) {
 //     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -42,22 +43,6 @@ function getNumberInCluster($clusterNumber){
     
     $csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
     $row = 1;
-    //  1'Agriculture, Food and Natural Resources'
-    //  2'Architecture and Construction'
-    //  3'Arts, A/V Technology and Communications'
-    //  4'Business, Management and Administration'
-    //  5'Education and Training'
-    //  6'Finance'
-    //  7'Government and Public Administration'
-    //  8'Health Science'
-    //  9'Hospitality and Tourism'   
-    //  10'Human Services'
-    //  11'Information Technology'
-    //  12'Law, Public Safety and Security'
-    //  13'Manufacturing'
-    //  14'Marketing, Sales and Service'
-    //  15'Science, Technology, Engineering and Mathematics'
-    //  16'Transportation, Distribution and Logistics'
     
     $clusterCounter = 0;
     global $CLUSTER_ARRAY;
