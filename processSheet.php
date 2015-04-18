@@ -23,7 +23,7 @@ $CLUSTER_ARRAY = array(
 );
 
 
-     echo getCareerInfo(1);
+     displayMap();
 
 function getNumberInCluster($clusterNumber){
     
@@ -136,17 +136,86 @@ function geocode($address){
         return false;
     }
 }
+function getCareerName($career){
+
+    $csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
+    $row = 0;
+    $name = "";
+    
+    if (($handle = fopen($csvFile, "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            if($row == $career)
+                $name = $data[0];
+            $row++;
+        }
+        
+    }
+    fclose($handle);
+    
+    return($name);
+    
+}
 
 function getCareerInfo($career){
     
     $toReturn = "";
     $arrayItem = getAddressSummary($career);
     
-    $toReturn = $toReturn.$arrayItem."<br />";
+    $toReturn = $toReturn.getCareerName($career)."<br />";
+    $toReturn = $toReturn.$arrayItem;
     $toReturn = $toReturn.geocode($arrayItem)[0].", ".geocode($arrayItem)[1]."<br />";
     
     return $toReturn;
 
+    
+}
+
+function displayMap(){
+    
+    $htmlToPrint = 
+    "
+    <!DOCTYPE html>
+        <html>
+          <head>
+            <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">
+            <meta charset=\"utf-8\">
+            <title>Simple markers</title>
+            <style>
+              html, body, #map-canvas {
+                height: 100%;
+                margin: 0px;
+                padding: 0px
+              }
+            </style>
+            <script src=\"https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true\"></script>
+            <script>
+        function initialize() {
+          var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+          var mapOptions = {
+            zoom: 4,
+            center: myLatlng
+          }
+          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        
+          var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              title: 'Hello World!'
+          });
+        }
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+        
+            </script>
+          </head>
+          <body>
+            <div id=\"map-canvas\"></div>
+          </body>
+        </html>
+    
+    ";
+    print($htmlToPrint);
+    
     
 }
 
