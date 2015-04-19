@@ -23,7 +23,9 @@ $CLUSTER_ARRAY = array(
 );
 
 
-     displayMap();
+     //displayMap();
+     getLatLangArray();
+
 
 function getNumberInCluster($clusterNumber){
     
@@ -155,7 +157,26 @@ function getCareerName($career){
     return($name);
     
 }
+function getNumberOfCareers(){
+    
+     
+    $csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
+    $row = 1;
+    
+    $clusterCounter = 0;
+    global $CLUSTER_ARRAY;
 
+    if (($handle = fopen($csvFile, "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        //echo "<p> $num fields in line $row: <br /></p>\n"
+        $clusterCounter++;
+        $row++;
+    }
+    return $clusterCounter;
+    fclose($handle);
+}
+}
 function getCareerInfo($career){
     
     $toReturn = "";
@@ -166,6 +187,38 @@ function getCareerInfo($career){
     $toReturn = $toReturn.geocode($arrayItem)[0].", ".geocode($arrayItem)[1]."<br />";
     
     return $toReturn;
+
+    
+}
+function getLatLangArray(){
+    
+    $LATLANGPAIR_ARRAY = array();
+    $ADDRESS_ARRAY = array();
+    
+    $csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
+    $row = 1;
+    
+    $clusterCounter = 0;
+    global $CLUSTER_ARRAY;
+
+    if (($handle = fopen($csvFile, "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            
+            if($data[2] != "")
+                array_push($ADDRESS_ARRAY, $data[1]."</br>".$data[2]."<br />".$data[4]." ".$data[5].", ".$data[3]."<br />");
+            else
+                array_push($ADDRESS_ARRAY, $data[1]."</br>".$data[4]." ".$data[5].", ".$data[3]."<br />");
+            //Address line 1, break, Address line 2, city state, comma, zip
+        }
+    }
+    fclose($handle);
+    
+    echo $ADDRESS_ARRAY[$i];
+    
+    for($i = 0; $i < getNumberOfCareers(); $i++){
+        array_push($LATLANGPAIR_ARRAY, geocode($ADDRESS_ARRAY[$i])[0].", ".geocode($ADDRESS_ARRAY[$i])[1]."<br />");
+        echo $LATLANGPAIR_ARRAY[$i];
+    }
 
     
 }
@@ -190,15 +243,16 @@ function displayMap(){
             <script src=\"https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true\"></script>
             <script>
         function initialize() {
-          var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+          var myLatlng = new google.maps.LatLng(41.2997224,-73.3391967);
           var mapOptions = {
             zoom: 4,
             center: myLatlng
           }
           var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         
+        for (i = 0; i < ".getNumberOfCareers()." i++)
           var marker = new google.maps.Marker({
-              position: myLatlng,
+              position: ,
               map: map,
               title: 'Hello World!'
           });
