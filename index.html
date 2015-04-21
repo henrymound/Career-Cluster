@@ -1,7 +1,7 @@
 <html>
     <head>
         <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
-       <div id="series_chart_div" style="width: 700px; height:700px;"></div>
+       <div id="series_chart_div" style="width: 880px; height:880px;"></div>
     </head>
     
     <body bgcolor="#FFD700">
@@ -33,9 +33,10 @@
               var options = {
                 title: 'Available Clusters (JBHS)',
                 titleTextStyle: {color: '#000000', fontSize: 20},
-                  hAxis: {title: 'Life Expectancy', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
+                hAxis: {title: 'Life Expectancy', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
                 vAxis: {title: 'Fertility Rate', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
-                bubble: {textStyle: {fontSize: 11}},
+                sizeAxis: {minValue: 0,  maxSize: 70},
+                bubble: {textStyle: {fontSize: 13}},
                 legend: {position: 'none', textStyle: {color: 'blue', fontSize: 16}}
               };
 
@@ -53,13 +54,9 @@
                 }
                 
             }
-          
-            
-            
-            
-        
             
         </script>
+        
     </body>
     
 </html>
