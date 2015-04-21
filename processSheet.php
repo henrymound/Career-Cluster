@@ -1,6 +1,7 @@
 
 <?php 
 
+$LATLANGPAIR_ARRAY;
 $CLUSTER_ARRAY = array(
     
      "Agriculture, Food and Natural Resources",
@@ -23,9 +24,9 @@ $CLUSTER_ARRAY = array(
 );
 
 
-     //displayMap();
      getLatLangArray();
-
+     displayMap();
+    
 
 function getNumberInCluster($clusterNumber){
     
@@ -215,9 +216,9 @@ function getLatLangArray(){
     
     echo $ADDRESS_ARRAY[$i];
     
-    for($i = 0; $i < getNumberOfCareers(); $i++){
-        array_push($LATLANGPAIR_ARRAY, geocode($ADDRESS_ARRAY[$i])[0].", ".geocode($ADDRESS_ARRAY[$i])[1]."<br />");
-        echo $LATLANGPAIR_ARRAY[$i];
+    for($i = 1; $i < getNumberOfCareers(); $i++){
+            array_push($LATLANGPAIR_ARRAY, geocode($ADDRESS_ARRAY[$i])[0].", ".geocode($ADDRESS_ARRAY[$i])[1]."<br />");
+            //echo $LATLANGPAIR_ARRAY[$i-1];
     }
 
     
@@ -252,7 +253,7 @@ function displayMap(){
         
         for (i = 0; i < ".getNumberOfCareers()." i++)
           var marker = new google.maps.Marker({
-              position: ,
+              position: ".$LATLANGPAIR_ARRAY[0]."
               map: map,
               title: 'Hello World!'
           });
@@ -268,7 +269,8 @@ function displayMap(){
         </html>
     
     ";
-    print($htmlToPrint);
+    
+    print ($htmlToPrint);
     
     
 }
