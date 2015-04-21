@@ -1,7 +1,7 @@
 
 <?php 
 
-$LATLANGPAIR_ARRAY;
+$LATLANGPAIR_ARRAY = array();
 $CLUSTER_ARRAY = array(
     
      "Agriculture, Food and Natural Resources",
@@ -193,7 +193,7 @@ function getCareerInfo($career){
 }
 function getLatLangArray(){
     
-    $LATLANGPAIR_ARRAY = array();
+    global $LATLANGPAIR_ARRAY;
     $ADDRESS_ARRAY = array();
     
     $csvFile = 'https://docs.google.com/spreadsheets/d/1xCSMLMurBLSYvn5g3GmtinkDvmRdYxjQrysFr0IMtMQ/export?format=csv';
@@ -226,49 +226,60 @@ function getLatLangArray(){
 
 function displayMap(){
     
-    $htmlToPrint = 
-    "
-    <!DOCTYPE html>
-        <html>
-          <head>
-            <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">
-            <meta charset=\"utf-8\">
-            <title>Simple markers</title>
-            <style>
-              html, body, #map-canvas {
-                height: 100%;
-                margin: 0px;
-                padding: 0px
-              }
-            </style>
-            <script src=\"https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true\"></script>
-            <script>
-        function initialize() {
-          var myLatlng = new google.maps.LatLng(41.2997224,-73.3391967);
-          var mapOptions = {
-            zoom: 4,
-            center: myLatlng
-          }
-          var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-        
-        for (i = 0; i < ".getNumberOfCareers()." i++)
-          var marker = new google.maps.Marker({
-              position: ".$LATLANGPAIR_ARRAY[0]."
-              map: map,
-              title: 'Hello World!'
-          });
-        }
-        
-        google.maps.event.addDomListener(window, 'load', initialize);
-        
-            </script>
-          </head>
-          <body>
-            <div id=\"map-canvas\"></div>
-          </body>
-        </html>
+    global $LATLANGPAIR_ARRAY;
     
-    ";
+    $htmlToPrint = 
+        "
+            <!DOCTYPE html>
+                <html>
+                  <head>
+                    <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\">
+                    <meta charset=\"utf-8\">
+                    <title>Simple markers</title>
+                    <style>
+                      html, body, #map-canvas {
+                        height: 100%;
+                        margin: 0px;
+                        padding: 0px
+                      }
+                    </style>
+                    <script src=\"https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true\"></script>
+                    <script>
+                    
+                function initialize() {
+                  var myLatlng = new google.maps.LatLng(41.299666,-73.339068);
+                  var mapOptions = {
+                    zoom: 4,
+                    center: myLatlng
+                  }
+                  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);";
+                  
+                 for($i = 0; $i < getNumberOfCareers(); $i++){
+                     $htmlToPrint = $htmlToPrint."
+                          var marker = new google.maps.Marker({
+                             position: new google.maps.LatLng(".$LATLANGPAIR_ARRAY[$i]."),
+                             map: map,
+                             title: 'Hello World!'
+                           });
+                        ";
+                 }
+                        
+                $htmlToPrint = $htmlToPrint."  
+                }
+                
+                google.maps.event.addDomListener(window, 'load', initialize);
+                
+                    </script>
+                  </head>
+                  <body>
+                    <div id=\"map-canvas\"></div>
+                  </body>
+                </html>
+                
+                ";
+                
+    
+
     
     print ($htmlToPrint);
     
