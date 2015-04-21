@@ -249,7 +249,7 @@ function displayMap(){
                 function initialize() {
                   var myLatlng = new google.maps.LatLng(41.299666,-73.339068);
                   var mapOptions = {
-                    zoom: 4,
+                    zoom: 10,
                     center: myLatlng
                   }
                   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);";
@@ -260,7 +260,7 @@ function displayMap(){
                           '<div id=\"content\">'+
                           '<div id=\"siteNotice\">'+
                           '</div>'+
-                          '<h1 id=\"firstHeading\" class=\"firstHeading\">Uluru</h1>'+
+                          '<h3 id=\"firstHeading\" class=\"firstHeading\">Uluru</h3>'+
                           '<div id=\"bodyContent\">'+
                           '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
                           'sandstone rock formation in the southern part of the '+
