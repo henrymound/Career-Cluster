@@ -688,16 +688,8 @@
                                                         <nil key="identifier"/>
                                                     </webPreferences>
                                                 </webView>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-VM-tAQ">
-                                                    <rect key="frame" x="293" y="569" width="273" height="42"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Career Clusters" id="TzZ-IJ-m9f">
-                                                        <font key="font" size="36" name="Arial-BoldMT"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfE-5E-2WO">
-                                                    <rect key="frame" x="-3" y="566" width="58" height="45"/>
+                                                    <rect key="frame" x="-3" y="564" width="58" height="45"/>
                                                     <subviews>
                                                         <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-Ve-X5k">
                                                             <rect key="frame" x="6" y="-120" width="46" height="284"/>
@@ -705,20 +697,45 @@
                                                         </imageView>
                                                     </subviews>
                                                 </customView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-VM-tAQ">
+                                                    <rect key="frame" x="293" y="565" width="273" height="42"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Career Clusters" id="TzZ-IJ-m9f">
+                                                        <font key="font" size="36" name="Arial-BoldMT"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Map" identifier="2" id="ciO-5k-qMe">
                                         <view key="view" id="kze-qc-6uh">
-                                            <rect key="frame" x="10" y="7" width="859" height="542"/>
+                                            <rect key="frame" x="10" y="7" width="859" height="613"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTT-3k-X1H">
-                                                    <rect key="frame" x="-3" y="-90" width="865" height="635"/>
+                                                    <rect key="frame" x="-3" y="-70" width="865" height="631"/>
                                                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                                                         <nil key="identifier"/>
                                                     </webPreferences>
                                                 </webView>
+                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3aM-r1-yc2">
+                                                    <rect key="frame" x="-3" y="564" width="58" height="45"/>
+                                                    <subviews>
+                                                        <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6r-Ir-iaT">
+                                                            <rect key="frame" x="6" y="-120" width="46" height="284"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="medium" id="BrN-uh-Nqt"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </customView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-Cl-Opm">
+                                                    <rect key="frame" x="293" y="565" width="273" height="42"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Career Clusters" id="1ug-bW-d8b">
+                                                        <font key="font" size="36" name="Arial-BoldMT"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
