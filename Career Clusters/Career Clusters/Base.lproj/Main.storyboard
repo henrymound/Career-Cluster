@@ -656,8 +656,6 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="800" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="800" height="600"/>
-                        <value key="maxSize" type="size" width="800" height="600"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -672,11 +670,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="905" height="749"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BfE-5E-2WO">
-                                <rect key="frame" x="20" y="538" width="58" height="45"/>
+                                <rect key="frame" x="20" y="687" width="58" height="45"/>
                                 <subviews>
                                     <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-Ve-X5k">
                                         <rect key="frame" x="6" y="-119" width="46" height="284"/>
@@ -685,7 +683,7 @@
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-VM-tAQ">
-                                <rect key="frame" x="264" y="538" width="273" height="42"/>
+                                <rect key="frame" x="316" y="687" width="273" height="42"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Career Clusters" id="TzZ-IJ-m9f">
                                     <font key="font" size="36" name="Arial-BoldMT"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -693,16 +691,16 @@
                                 </textFieldCell>
                             </textField>
                             <tabView fixedFrame="YES" type="bottomTabsBezelBorder" translatesAutoresizingMaskIntoConstraints="NO" id="uaZ-UE-RJt">
-                                <rect key="frame" x="13" y="14" width="774" height="520"/>
+                                <rect key="frame" x="13" y="8" width="879" height="675"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="Clusters" identifier="1" id="yto-St-3FM">
                                         <view key="view" id="cwf-6I-zG8">
-                                            <rect key="frame" x="10" y="7" width="754" height="482"/>
+                                            <rect key="frame" x="10" y="7" width="859" height="637"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCB-OE-IT0">
-                                                    <rect key="frame" x="-3" y="-15" width="760" height="500"/>
+                                                    <rect key="frame" x="-3" y="-1" width="865" height="641"/>
                                                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
                                                 </webView>
                                             </subviews>
@@ -710,11 +708,11 @@
                                     </tabViewItem>
                                     <tabViewItem label="Map" identifier="2" id="ciO-5k-qMe">
                                         <view key="view" id="kze-qc-6uh">
-                                            <rect key="frame" x="10" y="7" width="754" height="482"/>
+                                            <rect key="frame" x="10" y="7" width="859" height="637"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTT-3k-X1H">
-                                                    <rect key="frame" x="-3" y="-3" width="760" height="488"/>
+                                                    <rect key="frame" x="-3" y="5" width="865" height="635"/>
                                                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
                                                 </webView>
                                             </subviews>
@@ -732,7 +730,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="840"/>
+            <point key="canvasLocation" x="126.5" y="914.5"/>
         </scene>
     </scenes>
     <resources>

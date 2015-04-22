@@ -15,9 +15,10 @@
     [super viewDidLoad];
     
     //For web clusters
-    NSString *clusterUrlAddress = @"https://career-cluster-henrymound.c9.io/cropping_iframe.html";
+    NSString *clusterUrlAddress = @"https://career-cluster-henrymound.c9.io/index.html";
     NSURL *clusterUrl = [NSURL URLWithString:clusterUrlAddress];
     NSURLRequest *clusterRequestObj = [NSURLRequest requestWithURL:clusterUrl];
+    [[[_webViewClusters mainFrame] frameView] setAllowsScrolling:NO];
     [[_webViewClusters mainFrame] loadRequest:clusterRequestObj];
     
     //For web map
@@ -29,10 +30,13 @@
     // Do any additional setup after loading the view.
 }
 
+
+
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
 }
+
 
 @end
