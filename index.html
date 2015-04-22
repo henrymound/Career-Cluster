@@ -32,7 +32,7 @@
 
               var options = {
                 title: 'Available Clusters (JBHS)',
-                titleTextStyle: {color: '#000000', fontSize: 20},
+                titleTextStyle: {color: '#ffffff', fontSize: 20},
                 hAxis: {title: 'Life Expectancy', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
                 vAxis: {title: 'Fertility Rate', maxValue: 410, minValue: -10, baselineColor: 'white', titleTextStyle: {color: 'white'}, gridlines: {color: 'white', count: 0}},
                 sizeAxis: {minValue: 0,  maxSize: 70},
@@ -44,7 +44,7 @@
               chart.draw(data, options);
                             
               google.visualization.events.addListener(chart, 'select', selectHandler);
-
+              window.scrollTo(80,100);
      
               function selectHandler() {
                 
